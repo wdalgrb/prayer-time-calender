@@ -25,10 +25,8 @@ const providers = async (details) => {
     if (type == "get" || type == "delete") {
         res = await Axios[type](`${url}`, config,)
             .catch((error) => {
-
+                console.log("error on request api");
                 return {
-                    ...error.response.data,
-                    errorType: error.response.data.error,
                     error: true,
                 }
             });
