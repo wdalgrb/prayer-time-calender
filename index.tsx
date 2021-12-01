@@ -35,8 +35,8 @@ X-LIC-LOCATION:Asia/Riyadh`
     getAllDates = async () => {
         for (let index = 0; index < this.monthes.length; index++) {
             const month = this.monthes[index];
+            await this.fetchData(month)
         }
-        await this.fetchData(12)
         let calenderData = this.state.calenderData
         calenderData += this.state.eventData;
         calenderData += `
@@ -55,7 +55,7 @@ END:VCALENDAR`
         if (!request.error) {
             let data = request.result.data
             this.createFile("calender-new.json", JSON.stringify(data));
-            for (let itemIndex = 0; itemIndex < 1; itemIndex++) {
+            for (let itemIndex = 0; itemIndex < data.length; itemIndex++) {
                 const element = data[itemIndex];
                 let timings = element.timings
                 let date = element.date
