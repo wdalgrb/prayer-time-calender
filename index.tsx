@@ -54,7 +54,6 @@ END:VCALENDAR`
         })
         if (!request.error) {
             let data = request.result.data
-            this.createFile("calender-new.json", JSON.stringify(data));
             for (let itemIndex = 0; itemIndex < data.length; itemIndex++) {
                 const element = data[itemIndex];
                 let timings = element.timings

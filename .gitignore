@@ -95,6 +95,7 @@ buck-out/
 # OS X
 .DS_Store
 
+/files/*
 # Root dir shouldn't have Xcode project
 /*.xcodeproj
 *.apk
